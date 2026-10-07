@@ -1,0 +1,52 @@
+{
+  "config_version": 1,
+  "provider": "google_gemini",
+  "api_base_url": "https://generativelanguage.googleapis.com/v1beta",
+  "api_key_env": "GEMINI_API_KEY",
+  "primary": {
+    "model": "gemini-2.5-flash-lite",
+    "generation_config": {
+      "temperature": 0.2,
+      "candidateCount": 1,
+      "maxOutputTokens": 6000,
+      "thinkingConfig": {"thinkingBudget": 0}
+    },
+    "pricing_usd_per_million_tokens": {"input": 0.10, "output": 0.40}
+  },
+  "fallback": {
+    "enabled": false,
+    "model": "gemini-3.1-flash-lite",
+    "generation_config": {
+      "candidateCount": 1,
+      "maxOutputTokens": 6000,
+      "thinkingConfig": {"thinkingLevel": "MINIMAL"}
+    },
+    "pricing_usd_per_million_tokens": {"input": 0.25, "output": 1.50}
+  },
+  "pricing_checked_on": "2026-09-10",
+  "pricing_source": "https://ai.google.dev/gemini-api/docs/pricing",
+  "prompt_version": "1.0.0",
+  "system_prompt": "ai/prompts/system.md",
+  "capabilities": "ai/capabilities.json",
+  "task_prompts": {
+    "create": "ai/prompts/create.md",
+    "edit": "ai/prompts/edit.md",
+    "repair": "ai/prompts/repair.md"
+  },
+  "response_schema": "ai/schemas/generation.schema.json",
+  "limits": {
+    "max_provider_calls_per_operation": 2,
+    "max_repair_calls": 1,
+    "attempt_timeout_seconds": 35,
+    "operation_timeout_seconds": 80,
+    "max_user_prompt_bytes": 4096,
+    "max_request_bytes": 65536,
+    "max_input_tokens_per_attempt": 24000,
+    "max_response_bytes": 262144,
+    "max_estimated_operation_cost_usd": 0.02
+  },
+  "tools_enabled": false,
+  "explicit_context_cache_enabled": false,
+  "store_raw_prompts_in_logs": false,
+  "allow_user_model_override": false
+}

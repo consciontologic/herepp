@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "kinds": ["logger", "checklist", "calculator"],
+  "field_types": ["text", "number", "boolean", "date"],
+  "formula_ops": ["field", "constant", "add", "subtract", "multiply", "divide"],
+  "limits": {"fields": 12, "calculations": 4, "instructions_per_calculation": 32},
+  "built_in": ["local_record_storage", "json_backup_restore", "csv_export", "blank_html_export"],
+  "excluded": [
+    "arbitrary_code", "arbitrary_html", "arbitrary_css", "external_urls",
+    "network_requests", "cloud_sync", "accounts", "payments", "runtime_ai",
+    "background_alarms", "background_location", "bluetooth", "camera",
+    "microphone", "sensors", "push_notifications", "file_system_paths"
+  ]
+}

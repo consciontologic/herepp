@@ -1,0 +1,40 @@
+{
+  "operation": "edit",
+  "prompt": "Rename Pages read to Pages completed and add an optional Notes text field.",
+  "locale": "en",
+  "runtime_version": "1.0.0",
+  "base_revision": 1,
+  "current_spec": {
+    "spec_version": "1.0",
+    "title": "Reading log",
+    "description": "Record books and pages read on this device.",
+    "kind": "logger",
+    "fields": [
+      {
+        "id": "book",
+        "label": "Book",
+        "type": "text",
+        "required": true,
+        "unit": null
+      },
+      {
+        "id": "pages",
+        "label": "Pages read",
+        "type": "number",
+        "required": true,
+        "unit": "pages"
+      },
+      {
+        "id": "read_on",
+        "label": "Date",
+        "type": "date",
+        "required": false,
+        "unit": null
+      }
+    ],
+    "calculations": [],
+    "summary_field_id": "pages",
+    "accent": "green",
+    "empty_state": "Add your first reading session."
+  }
+}

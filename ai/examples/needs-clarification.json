@@ -1,0 +1,8 @@
+{
+  "status": "needs_clarification",
+  "message": "I need one detail to define the calculation.",
+  "questions": [
+    "What formula should the score use?"
+  ],
+  "app": null
+}

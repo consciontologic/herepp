@@ -1,0 +1,47 @@
+{
+  "status": "ready",
+  "message": "Your converter is ready.",
+  "questions": [],
+  "app": {
+    "spec_version": "1.0",
+    "title": "Kilometers to miles",
+    "description": "Convert a distance locally.",
+    "kind": "calculator",
+    "fields": [
+      {
+        "id": "kilometers",
+        "label": "Distance",
+        "type": "number",
+        "required": true,
+        "unit": "km"
+      }
+    ],
+    "calculations": [
+      {
+        "id": "miles",
+        "label": "Distance in miles",
+        "unit": "mi",
+        "program": [
+          {
+            "op": "field",
+            "field_id": "kilometers",
+            "value": null
+          },
+          {
+            "op": "constant",
+            "field_id": null,
+            "value": 1.609344
+          },
+          {
+            "op": "divide",
+            "field_id": null,
+            "value": null
+          }
+        ]
+      }
+    ],
+    "summary_field_id": null,
+    "accent": "blue",
+    "empty_state": "Enter a distance to convert."
+  }
+}

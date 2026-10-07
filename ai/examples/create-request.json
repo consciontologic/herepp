@@ -1,0 +1,8 @@
+{
+  "operation": "create",
+  "prompt": "Make a reading log with book title, pages read, and date. Show the total pages.",
+  "locale": "en",
+  "runtime_version": "1.0.0",
+  "base_revision": null,
+  "current_spec": null
+}

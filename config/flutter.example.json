@@ -1,0 +1,9 @@
+{
+  "API_BASE_URL": "https://api.example.invalid",
+  "APP_SPEC_VERSION": "1.0",
+  "RUNTIME_VERSION": "1.0.0",
+  "ENABLE_PUBLIC_SHARING": "false",
+  "ENABLE_NATIVE_HARDWARE_BRIDGE": "false",
+  "ENABLE_RUNTIME_NETWORK": "false",
+  "ENABLE_PWA_EXPORT": "false"
+}

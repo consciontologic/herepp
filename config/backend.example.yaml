@@ -1,0 +1,55 @@
+# Application configuration contract. The Go service is not implemented yet.
+# Load paths from the repository root; reject unknown keys and unresolved secrets.
+environment: development
+http:
+  listen: "127.0.0.1:8080"
+  # In Cloud Run, bind 0.0.0.0 to the platform-provided PORT.
+  read_header_timeout_seconds: 5
+  write_timeout_seconds: 90
+  idle_timeout_seconds: 65
+  max_body_bytes: 65536
+  allowed_web_origins: [] # Native Flutter clients do not require browser CORS.
+ai_config: config/ai.json
+auth:
+  mode: provisioned_beta_tokens
+  token_pepper_env: TOKEN_HASH_PEPPER
+  require_auth_for_generation: true
+  # Issue a separate random token per tester; never put a shared token in a build.
+control_store:
+  driver: sqlite # Development / one process on a persistent local disk only.
+  sqlite_path: .local/control.db
+  firestore_project_env: GOOGLE_CLOUD_PROJECT
+  firestore_database: "(default)"
+  collection_prefix: herepp
+  # Production Cloud Run uses firestore; local disks there are not durable.
+idempotency:
+  retention_hours: 24
+  lease_seconds: 120
+  unknown_attempt_policy: hold_reservation_and_require_explicit_new_operation
+budgets:
+  per_principal_daily_usd: 0.25
+  global_daily_usd: 5.00
+  requests_per_principal_per_minute: 3
+  operations_per_principal_per_day: 20
+  concurrent_operations_per_principal: 1
+  concurrent_operations_per_instance: 4
+  reserve_before_provider_call: true
+  fail_closed_if_store_unavailable: true
+privacy:
+  log_request_bodies: false
+  log_provider_response_bodies: false
+  store_runtime_records: false
+  completed_spec_retention_hours: 24
+publishing:
+  enabled: false
+  public_base_url: "https://share.example.invalid"
+  metadata_mode: static_at_publish
+deployment:
+  target: cloud_run
+  min_instances: 0
+  max_instances: 1
+  container_concurrency: 4
+  cpu: 1
+  memory_mib: 512
+  request_timeout_seconds: 90
+  # These are intended deployment values, not a Cloud Run resource manifest.

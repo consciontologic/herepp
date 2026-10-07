@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+.local/
+.venv/
+__pycache__/
+*.pyc
+config/*.local.json
+config/*.local.yaml
+ai/generated/
